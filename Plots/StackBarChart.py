@@ -11,6 +11,7 @@ df = df.apply(lambda x: x.str.strip() if x.dtype == "object" else x)
 # Creating unrecovered column
 df['Unrecovered'] = df['Confirmed'] - df['Deaths'] - df['Recovered']
 
+
 # Removing China and Others from data frame
 df = df[(df['Country'] != 'China')]
 
