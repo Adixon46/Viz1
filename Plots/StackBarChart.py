@@ -23,12 +23,16 @@ new_df = df.groupby(['Country']).agg(
 new_df = new_df.sort_values(by=['Confirmed'], ascending=[False]).head(20).reset_index()
 
 # Preparing data
+#This makes the country foreach bar
+#This also show the amount in color of trace 1 unrecovered, trace 2 recovered, and trace 3 deaths
 trace1 = go.Bar(x=new_df['Country'], y=new_df['Unrecovered'], name='Unrecovered', marker={'color': '#CD7F32'})
 trace2 = go.Bar(x=new_df['Country'], y=new_df['Recovered'], name='Recovered', marker={'color': '#9EA0A1'})
 trace3 = go.Bar(x=new_df['Country'], y=new_df['Deaths'], name='Deaths', marker={'color': '#FFD700'})
 data = [trace1, trace2, trace3]
 
 # Preparing layout
+#This is the text outside of the chart it has the title and countries on the x axis
+#THe case amount on the y
 layout = go.Layout(title='Corona Virus Cases in the first 20 country expect China', xaxis_title="Country",
                    yaxis_title="Number of cases", barmode='stack')
 
